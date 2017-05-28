@@ -29,6 +29,7 @@ const SearchboxWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   margin: auto;
+  margin-bottom: 40px;
   width: 500px;
 `
 

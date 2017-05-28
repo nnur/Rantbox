@@ -1,13 +1,34 @@
 import React, { Component } from 'react';
 import {theme} from '../../assets/css/theme.js';
+import { connect } from 'react-redux';
+import { addRant } from '../../actions';
 import styled from 'styled-components';
 
 class Rantbox extends Component {
 
-  render() {
+  constructor() {
+    super();
+    this.state = {
+      rantBody: '',
+      rantAbout: ''
+    }
+  }
+  onRantAboutEdited (event) {
+    this.setState({rantAbout: event.target.value});
+  }
+  onRantBodyEdited (event) {
+    this.setState({rantBody: event.target.value});
+  }
 
-    console.log(this.props)
-    console.log('this.props')
+  onSubmit() {
+    const rantAbout = this.state.rantAbout;
+    const rantBody = this.state.rantBody;
+    if (rantAbout && rantBody && (rantAbout.length > 0) && (rantBody.length > 0)) {
+      this.props.addRant(this.state.rantBody, this.state.rantAbout)
+    }
+  }
+
+  render() {
       return (
         <div>
             <RantboxWrapper>
@@ -15,17 +36,23 @@ class Rantbox extends Component {
                   I think
               </RantboxTitle>
 
-              <RantboxThink>
+              <RantboxThink 
+                value={this.state.rantBody}
+                onChange={this.onRantBodyEdited.bind(this)}
+                placeholder='type your rant...'>
               </RantboxThink>
 
               <RantboxTitle>
                   about
               </RantboxTitle>
 
-              <RantboxAbout>
+              <RantboxAbout
+                value={this.state.rantAbout}
+                onChange={this.onRantAboutEdited.bind(this)}
+                placeholder='What is your rant about?'>
               </RantboxAbout>
 
-              <SubmitButton>
+              <SubmitButton onClick={this.onSubmit.bind(this)}>
                 Submit Rant!
               </SubmitButton>
             </RantboxWrapper>
@@ -33,6 +60,14 @@ class Rantbox extends Component {
       );
   }
 }
+
+const mapDispatchToProps = {
+  addRant
+}
+export default connect (
+  () => ({}),
+  mapDispatchToProps
+)(Rantbox)
 
 const RantboxWrapper = styled.div`
   display: flex;
@@ -79,6 +114,7 @@ const SubmitButton = styled.button`
     padding: 10px 20px 10px 20px;
     background: white;
     font-weight: 500;
+    cursor: pointer;
     outline: none; 
     &:hover {
         background: ${theme.paleGreen};
@@ -88,4 +124,3 @@ const SubmitButton = styled.button`
     }
 `
 
-export default Rantbox;

@@ -1,4 +1,5 @@
-export const addRant = (rantText) => ({
+export const addRant = (body, about) => ({
   type: 'ADD_RANT',
-  rantText
+  body,
+  about
 });
