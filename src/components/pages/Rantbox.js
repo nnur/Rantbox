@@ -4,11 +4,10 @@ import styled from 'styled-components';
 
 class Rantbox extends Component {
 
-  constructor() {
-    super();
-  }
-
   render() {
+
+    console.log(this.props)
+    console.log('this.props')
       return (
         <div>
             <RantboxWrapper>

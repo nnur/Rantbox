@@ -4,9 +4,6 @@ import styled from 'styled-components';
 
 class Searchbox extends Component {
 
-  constructor() {
-    super();
-  }
   render() {
     return (
     <div>

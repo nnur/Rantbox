@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
-import {theme} from '../../../assets/css/theme.js';
+import { theme } from '../../../assets/css/theme.js';
 import styled from 'styled-components';
 
 class SearchResult extends Component {
 
-  constructor() {
-    super();
-  }
   render() {
+      console.log(this.props)
     return (
     <div>
       <SearchResultWrapper>
-          <RantResult>
-              Sometimes I really hate the way flux just dims my screen without asking but then i get used to it and its like i'm waring sunglasses. i wish that my mom loved me...'
-             <RantDate>
-                date
-             </RantDate>
-          </RantResult>
+        {this.props.results.map((result, i) => (
+            (<RantResult key={i}>
+                { result.text }
+                <RantDate>
+                May 13, 2017
+                </RantDate>
+            </RantResult>)
+        ))}
+
       </SearchResultWrapper>
     </div>
     )
@@ -41,4 +42,7 @@ const RantResult = styled.div`
     padding: 10px;
 `
 const RantDate = styled.div`
+    align-self: flex-end;
+    font-size: 12px;
+    font-weight: 300;
 `
