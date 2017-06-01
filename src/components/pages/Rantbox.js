@@ -37,26 +37,27 @@ class Rantbox extends Component {
         <div>
             <RantboxWrapper>
               <RantboxTitle>
-                  I think
+                  * I think
               </RantboxTitle>
 
               <RantboxThink 
                 value={this.state.rantBody}
                 onChange={this.onRantBodyEdited.bind(this)}
-                placeholder='Type your rant...'>
-              </RantboxThink>
+                placeholder='Type your rant...'
+                maxLength={140}
+              />
 
               <RantboxTitle>
-                  about
+                  * about
               </RantboxTitle>
 
               <RantboxAbout
                 value={this.state.rantAbout}
                 onChange={this.onRantAboutEdited.bind(this)}
-                placeholder='What is your rant about?'>
-              </RantboxAbout>
+                placeholder='What is your rant about?'
+                maxLength={50}/>
 
-              <SubmitButton onClick={this.onSubmit.bind(this)}>
+              <SubmitButton onClick={this.onSubmit.bind(this)} disabled={this.state.rantAbout.length === 0 || this.state.rantBody.length === 0}>
                 Submit Rant!
               </SubmitButton>
             </RantboxWrapper>
@@ -125,6 +126,11 @@ const SubmitButton = styled.button`
     }
     &:active {
         background: ${theme.mediumGreen};
+    }
+    &:disabled {
+      background: #F4F8FA;
+      border: solid 2px #526069;
+      cursor: auto;
     }
 `
 
