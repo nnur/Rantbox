@@ -1,6 +1,6 @@
 
 const initialState = [{
-    body: 'i hate this stupid gazebo the roof fell down on my 5 yr old child i hate this stupid gazebo the roof fell down on my 5 yr old child i hate this stupid gazebo the roof fell down on my 5 yr old child i hate this stupid gazebo the roof fell down on my 5 yr old child i hate this stupid gazebo the roof fell down on my 5 yr old child i hate this stupid gazebo the roof fell down on my 5 yr old child i hate this stupid gazebo the roof fell down on my 5 yr old child i hate this stupid gazebo the roof fell down on my 5 yr old child i hate this stupid gazebo the roof fell down on my 5 yr old child i hate this stupid gazebo the roof fell down on my 5 yr old child i hate this stupid gazebo the roof fell down on my 5 yr old child',
+    body: 'this tupperware company is smelly and gross and I hope they all get shrunk and stuck in their too small boxes',
     about: 'gazebos'
 }]
 

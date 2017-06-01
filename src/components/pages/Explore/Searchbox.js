@@ -20,21 +20,12 @@ class Searchbox extends Component {
     return (
     <div>
         <SearchboxWrapper>
-
             <SearchboxTitle> Show me rants about... </SearchboxTitle>
-
-            <div>
-
               <SearchboxInput
                 value={this.state.searchQuery}
                 onChange={this.onSearchQueryChange.bind(this)}
                 placeholder='Type...'
               />
-
-              <SearchButton onClick={() => {this.props.onSubmit(this.state.searchQuery)}}>
-                Search
-              </SearchButton>
-            </div>
         </SearchboxWrapper>
     </div>
     )
@@ -49,7 +40,7 @@ const SearchboxWrapper = styled.div`
   justify-content: center;
   margin: auto;
   margin-bottom: 40px;
-  width: 500px;
+  width: 400px;
 `
 
 const SearchboxTitle = styled.div`
@@ -65,24 +56,7 @@ const SearchboxInput = styled.input`
   border: solid 2px black;
   margin-bottom: 20px;
   margin-right: 20px;
-  width: 60%;
   &:focus {
     background: ${theme.palePink};
   }
-`
-
-const SearchButton = styled.button`
-    font-size: 16px;
-    font-color: black;
-    border: solid 2px black;
-    padding: 8px 20px 8px 20px;
-    background: white;
-    font-weight: 500;
-    outline: none; 
-    &:hover {
-        background: ${theme.paleGreen};
-    }
-    &:active {
-        background: ${theme.mediumGreen};
-    }
 `
