@@ -35,6 +35,8 @@ const RantResult = styled.div`
     justify-content: space-between;
     border: solid 2px black;
     width: 700px;
+    height: 70px;
+    overflow: hidden;
     padding: 10px;
     margin-top: -2px;
 `

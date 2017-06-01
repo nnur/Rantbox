@@ -13,9 +13,11 @@ class Rantbox extends Component {
       rantAbout: ''
     }
   }
+
   onRantAboutEdited (event) {
     this.setState({rantAbout: event.target.value});
   }
+
   onRantBodyEdited (event) {
     this.setState({rantBody: event.target.value});
   }
@@ -25,6 +27,8 @@ class Rantbox extends Component {
     const rantBody = this.state.rantBody;
     if (rantAbout && rantBody && (rantAbout.length > 0) && (rantBody.length > 0)) {
       this.props.addRant(this.state.rantBody, this.state.rantAbout)
+      this.setState({rantAbout: ''});
+      this.setState({rantBody: ''});
     }
   }
 
@@ -39,7 +43,7 @@ class Rantbox extends Component {
               <RantboxThink 
                 value={this.state.rantBody}
                 onChange={this.onRantBodyEdited.bind(this)}
-                placeholder='type your rant...'>
+                placeholder='Type your rant...'>
               </RantboxThink>
 
               <RantboxTitle>

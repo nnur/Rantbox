@@ -4,6 +4,18 @@ import styled from 'styled-components';
 
 class Searchbox extends Component {
 
+  constructor() {
+    super();
+    this.state = {
+      searchQuery: ''
+    }
+  }
+
+  onSearchQueryChange(event) {
+    this.setState({searchQuery: event.target.value});
+    this.props.onQueryChange(event.target.value);
+  }
+
   render() {
     return (
     <div>
@@ -13,8 +25,15 @@ class Searchbox extends Component {
 
             <div>
 
-              <SearchboxInput></SearchboxInput>
-              <SearchButton>Search</SearchButton>
+              <SearchboxInput
+                value={this.state.searchQuery}
+                onChange={this.onSearchQueryChange.bind(this)}
+                placeholder='Type...'
+              />
+
+              <SearchButton onClick={() => {this.props.onSubmit(this.state.searchQuery)}}>
+                Search
+              </SearchButton>
             </div>
         </SearchboxWrapper>
     </div>
